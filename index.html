@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Myat ❤️ Ei</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    overflow: hidden;
+    font-family: Arial, "Myanmar Text", sans-serif;
+    background: linear-gradient(135deg, #ffd6e5, #fff0f5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #5a2940;
+}
+
+/* Floating hearts */
+.heart {
+    position: fixed;
+    bottom: -30px;
+    font-size: 20px;
+    animation: floatUp linear infinite;
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Main box */
+.container {
+    width: 92%;
+    max-width: 520px;
+    max-height: 90vh;
+    overflow-y: auto;
+    text-align: center;
+    background: rgba(255,255,255,0.88);
+    border-radius: 28px;
+    padding: 30px 22px;
+    box-shadow: 0 15px 50px rgba(150,60,100,0.2);
+    position: relative;
+    z-index: 2;
+}
+
+.photo {
+    width: 130px;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid #ff8fb3;
+    margin-bottom: 15px;
+}
+
+h1 {
+    color: #e94f86;
+    font-size: 30px;
+    margin: 5px 0 12px;
+}
+
+.question {
+    font-size: 20px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+button {
+    border: none;
+    border-radius: 30px;
+    padding: 13px 28px;
+    margin: 7px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#yes {
+    background: #ff5c91;
+    color: white;
+    box-shadow: 0 5px 15px rgba(255,92,145,0.3);
+}
+
+#yes:hover {
+    transform: scale(1.08);
+}
+
+#no {
+    background: #eeeeee;
+    color: #555;
+}
+
+/* Surprise message */
+#surprise {
+    display: none;
+    text-align: left;
+    animation: fadeIn 1.5s ease;
+}
+
+#surprise h2 {
+    text-align: center;
+    color: #e94f86;
+    margin-bottom: 20px;
+}
+
+.message {
+    font-size: 17px;
+    line-height: 2;
+}
+
+.love {
+    text-align: center;
+    font-size: 21px;
+    font-weight: bold;
+    color: #e94f86;
+    margin-top: 20px;
+}
+
+.signature {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#start {
+    display: block;
+}
+
+.hidden {
+    display: none !important;
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 27px;
+    }
+
+    .question {
+        font-size: 18px;
+    }
+
+    .message {
+        font-size: 16px;
+    }
+
+    .container {
+        padding: 25px 18px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Floating hearts -->
+<script>
+for (let i = 0; i < 25; i++) {
+    let heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = ["❤️","💕","💗","💖","🌸"][Math.floor(Math.random()*5)];
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (5 + Math.random() * 7) + "s";
+    heart.style.animationDelay = Math.random() * 5 + "s";
+
+    document.body.appendChild(heart);
+}
+</script>
+
+<div class="container">
+
+    <!-- First screen -->
+    <div id="start">
+
+        <!-- ဓာတ်ပုံထည့်ချင်ရင် photo.jpg လို့ပြောင်းထည့်ပါ -->
+        <!-- <img src="photo.jpg" class="photo"> -->
+
+        <h1>Myat ❤️ Ei</h1>
+
+        <div class="question">
+            မိန်းကလေးရေ... 🥺🌸<br>
+            မင်းအတွက် အံ့သြစရာလေးတစ်ခုရှိတယ် ❤️
+        </div>
+
+        <p>ဖွင့်ကြည့်မလား? 🫶</p>
+
+        <button id="yes" onclick="showSurprise()">
+            YES ❤️
+        </button>
+
+        <button id="no" onclick="moveNo()">
+            NO 😭
+        </button>
+
+    </div>
+
+
+    <!-- Surprise -->
+    <div id="surprise">
+
+        <h2>ချစ်ရပါသော မိန်းကလေးရေ 🌸</h2>
+
+        <div class="message">
+
+            ဒီကမ္ဘာပေါ်မှာ လူသန်းပေါင်းများစွာရှိတဲ့အထဲမှာ
+            မင်းနဲ့ဆုံတွေ့ခွင့်ရတာ ငါ့အတွက်တော့
+            လှပလွန်းတဲ့ ကံကြမ္မာတစ်ခုပါပဲ။ ❤️
+
+            <br><br>
+
+            အမြဲတမ်း ပျော်ရွှင်အောင်ထားနိုင်ဖို့ပဲ
+            ကြိုးစားပါမယ် 🫶
+
+            <br><br>
+
+            အမြဲတမ်း ပျော်ရွှင်အောင်ထားမယ်လို့
+            လုံးဝဂတိမပေးနိုင်ရင်တောင်မှ
+            မင်းဝမ်းနည်းတဲ့အချိန်တိုင်း၊
+            ဒါမှမဟုတ် မင်းပြိုလဲတဲ့အချိန်တိုင်းမှာ
+            မင်းအနားမှာ အားအင်တစ်ခုအဖြစ်
+            အမြဲတမ်းရှိနေပေးမယ့်လူတစ်ယောက်
+            ဖြစ်ပါရစေ။ ❤️
+
+            <br><br>
+
+            မှိုခြည်လေးကို အမြဲချစ်နေမှာပါနော်။ 🥰
+
+        </div>
+
+        <div class="love">
+            Love you so much, bae 🌸❤️
+        </div>
+
+        <div class="signature">
+            — Myat ❤️ Ei —
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+function showSurprise() {
+
+    document.getElementById("start").classList.add("hidden");
+
+    document.getElementById("surprise").style.display = "block";
+
+    // Extra hearts
+    for (let i = 0; i < 30; i++) {
+
+        let heart = document.createElement("div");
+
+        heart.innerHTML = "❤️";
+        heart.style.position = "fixed";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.top = Math.random() * 100 + "vh";
+        heart.style.fontSize = (15 + Math.random() * 30) + "px";
+        heart.style.zIndex = "10";
+        heart.style.pointerEvents = "none";
+
+        document.body.appendChild(heart);
+
+        heart.animate(
+            [
+                { transform: "scale(0)", opacity: 1 },
+                { transform: "scale(1.5)", opacity: 0 }
+            ],
+            {
+                duration: 1500,
+                easing: "ease-out"
+            }
+        );
+
+        setTimeout(() => heart.remove(), 1500);
+    }
+}
+
+
+function moveNo() {
+
+    const no = document.getElementById("no");
+
+    no.style.position = "fixed";
+
+    no.style.left =
+        Math.random() * (window.innerWidth - 100) + "px";
+
+    no.style.top =
+        Math.random() * (window.innerHeight - 60) + "px";
+}
+
+</script>
+
+</body>
+</html>
